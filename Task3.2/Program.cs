@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 
 namespace Task3._2
@@ -8,11 +8,11 @@ namespace Task3._2
         static void Main(string[] args)
         {
             Random random = new Random();
-            int valueOfArray = 10;
-            int[,] arrayOfNumbers = new int[valueOfArray, valueOfArray];
+            int sizeOfArray = 10;
+            int[,] arrayOfNumbers = new int[sizeOfArray, sizeOfArray];
             int maxNumberInArray = 100;
             int minNumberInArray = 10;
-            int maxValueInArray;
+            int maxValueInArray = 0;
             Console.WriteLine("Исходный массив:");
 
             for (int i = 0; i < arrayOfNumbers.GetLength(0); i++)
@@ -26,7 +26,16 @@ namespace Task3._2
                 Console.WriteLine();
             }
 
-            maxValueInArray = arrayOfNumbers.Cast<int>().Max();
+            for (int i = 0; i < arrayOfNumbers.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrayOfNumbers.GetLength(1); j++)
+                {
+                    if (maxValueInArray <= arrayOfNumbers[i, j])
+                    {
+                        maxValueInArray = arrayOfNumbers[i, j];
+                    }
+                }
+            }
 
             for (int i = 0; i < arrayOfNumbers.GetLength(0); i++)
             {
